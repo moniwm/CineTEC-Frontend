@@ -1,0 +1,31 @@
+<app-admin-navbar></app-admin-navbar>
+
+<h1>Theaters</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Movie Theater</a>
+ <table class="table table-striped">
+     <thead>
+         <tr>
+             <th style="width: 10%">Name</th>
+             <th style="width: 30%">Location</th>
+             <th style="width: 60%">Cinema Amount</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr *ngFor="let theater of theaters">
+                 
+                 <td>{{theater.name}}</td>
+                 <td>{{theater.location}}</td>
+                 <td>{{theater.cinemaAmount}}</td>
+                 <td style="white-space: nowrap">
+                     <a class="btn btn-sm btn-primary mr-1">Edit</a>
+                     <a class="btn btn-sm btn-primary mr-1">Delete</a>
+                 </td>
+         </tr>
+
+         <tr *ngIf="!theaters">
+             <td colspan="4" class="text-center">
+                 <span class="spinner-border spinner-border-lg align-center"></span>
+             </td>
+         </tr>
+     </tbody>
+ </table>

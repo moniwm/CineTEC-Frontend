@@ -1,0 +1,35 @@
+<app-admin-navbar></app-admin-navbar>
+
+<h1>Screenings</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Screening</a>
+ <table class="table table-striped">
+     <thead>
+         <tr>
+             <th style="width: 10%">Id</th>
+             <th style="width: 30%">Cinema Number</th>
+             <th style="width: 10%">Movie Name</th>
+             <th style="width: 10%">Time</th>
+             <th style="width: 40%">Capacity</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr *ngFor="let screening of screenings">
+                 
+                 <td>{{screening.id}}</td>
+                 <td>{{screening.cinemaNumber}}</td>
+                 <td>{{screening.movieOriginalName}}</td>
+                 <td>{{screening.hour}}</td>
+                 <td>{{screening.capacity}}</td>
+                 <td style="white-space: nowrap">
+                     <a class="btn btn-sm btn-primary mr-1">Edit</a>
+                     <a class="btn btn-sm btn-primary mr-1">Delete</a>
+                 </td>
+         </tr>
+
+         <tr *ngIf="!screenings">
+             <td colspan="4" class="text-center">
+                 <span class="spinner-border spinner-border-lg align-center"></span>
+             </td>
+         </tr>
+     </tbody>
+ </table>

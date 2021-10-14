@@ -1,25 +1,28 @@
 <div class="content" role="main">
    <h1>Login</h1>
    <hr>
-   <h3>username</h3>
+   <h3>Username or ID</h3>
    <input 
     type = "text"
-    class = "form-control">
+    class = "form-control"
+    [(ngModel)]="clientId">
     <hr>
-    <h3>password</h3>
+    <h3>Password</h3>
     <input 
      type = "text"
-     class = "form-control">
+     class = "form-control"
+     [(ngModel)]="clientPassword">
      <hr>
      <button 
-     class = "btn btn-primary">
+     class = "btn btn-primary"
+     (click) = "onClickLogin()">
      Log in
      </button>
      <hr>
      <label> Don't have an account yet?</label>
 
      <button 
-     class = "btn btn-primary">
+     class = "btn btn-primary" [routerLink]="['register/client']">
      Register
      </button>
 

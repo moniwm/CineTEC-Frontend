@@ -4,28 +4,33 @@
       <h3>Theater </h3>
       <input 
        type = "text"
-       class = "form-control">
+       class = "form-control"
+       [(ngModel)]="theater">
        <hr>
        <h3>ID</h3>
        <input 
         type = "text"
-        class = "form-control">
+        class = "form-control"
+        [(ngModel)]="id">
         <hr>
         <h2>Seats information</h2>
         <h3>Columns</h3>
       <input 
        type = "text"
-       class = "form-control">
+       class = "form-control"
+       [(ngModel)]="columns">
        <hr>
 
        <h3>Rows</h3>
       <input 
        type = "text"
-       class = "form-control">
+       class = "form-control"
+       [(ngModel)]="rows">
        <hr>
   
        <button 
-       class = "btn btn-primary">
+       class = "btn btn-primary"
+       (click) = "onClickRegister()">
        Register
        </button>
   </div>
