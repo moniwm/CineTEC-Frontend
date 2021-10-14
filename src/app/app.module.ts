@@ -11,6 +11,7 @@ import { ScreeningFormComponent } from './screening-form/screening-form.componen
 import { TheatersFormComponent } from './theaters-form/theaters-form.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { PdfReportComponent } from './pdf-report/pdf-report.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
     TheatersFormComponent,
     ClientFormComponent,
     EmployeeFormComponent,
+    PdfReportComponent,
   ],
   imports: [
     BrowserModule
