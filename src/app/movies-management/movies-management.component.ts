@@ -19,4 +19,9 @@ export class MoviesManagementComponent implements OnInit {
     })
   }
 
+  deleteMovie(movieName : any){
+    this.dataSvc.deleteMovie(movieName).subscribe((res) => console.log(res));
+    window.location.reload();
+  }
+
 }

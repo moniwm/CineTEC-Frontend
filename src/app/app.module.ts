@@ -18,6 +18,7 @@ import { CinemasManagementComponent } from './cinemas-management/cinemas-managem
 import { ScreeningManagementComponent } from './screening-management/screening-management.component';
 import { TheatersManagementComponent } from './theaters-management/theaters-management.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { AddClientComponent } from './add-client/add-client.component';
 
 const appRoutes : Routes = [
   { path: '' , component : LoginComponent},
@@ -27,7 +28,9 @@ const appRoutes : Routes = [
   { path: 'theaters' , component : TheatersManagementComponent},
   { path: 'screening' , component : ScreeningManagementComponent},
   { path: 'screening' , component : ScreeningManagementComponent},
-  { path: 'register/client' , component : ClientFormComponent}
+  { path: 'register/client' , component : ClientFormComponent},
+  {path: 'clients/add', component: AddClientComponent}
+  
 ]
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ const appRoutes : Routes = [
     MoviesManagementComponent,
     ScreeningManagementComponent,
     CinemasManagementComponent,
-    TheatersManagementComponent
+    TheatersManagementComponent,
+    AddClientComponent
   ],
   imports: [
     BrowserModule,

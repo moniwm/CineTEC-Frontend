@@ -19,4 +19,9 @@ export class TheatersManagementComponent implements OnInit {
     })
   }
 
+  deleteTheater(theaterName : any){
+    this.dataSvc.deleteTheater(theaterName).subscribe((res) => console.log(res));
+    window.location.reload();
+  }
+
 }

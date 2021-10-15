@@ -21,8 +21,8 @@
                  <td>{{cinema.columns}}</td>
                  <td>{{cinema.capacity}}</td>
                  <td style="white-space: nowrap">
-                     <a class="btn btn-sm btn-primary mr-1">Edit</a>
-                     <a class="btn btn-sm btn-primary mr-1">Delete</a>
+                     <button class="btn btn-sm btn-primary mr-1">Edit</button>
+                     <button class="btn btn-sm btn-primary mr-1" (click)="deleteCinema(cinema.number)">Delete</button>
                  </td>
          </tr>
 

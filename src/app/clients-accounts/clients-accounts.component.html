@@ -1,6 +1,8 @@
 <app-admin-navbar></app-admin-navbar>
+
    <h1>Client Accounts</h1>
    <a routerLink="add" class="btn btn-sm btn-success mb-2">Add Client</a>
+   <a class="btn btn-sm btn-success mb-2" href="clients">Update</a>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -22,8 +24,8 @@
                     <td>{{account.phoneNumber}}</td>
                     <td>{{account.password}}</td>
                     <td style="white-space: nowrap">
-                        <a class="btn btn-sm btn-primary mr-1">Edit</a>
-                        <a class="btn btn-sm btn-primary mr-1">Delete</a>
+                        <button class="btn btn-sm btn-primary mr-1" href="clients">Edit</button>
+                        <button class="btn btn-sm btn-primary mr-1" (click)="deleteClient(account.id)" [routerLink]="['.']">Delete</button>
                     </td>
             </tr>
 

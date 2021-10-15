@@ -10,8 +10,10 @@ import { DataService } from '../data.service';
 export class LoginComponent implements OnInit {
 
   title = 'cinectec-frontend';
-  clientId = '';
-  clientPassword = '';
+  clientId = null;
+  clientPassword = null;
+  isAdmin = false;
+  isClient = false;
   
   constructor(private dataSvc : DataService) { 
     
@@ -19,15 +21,24 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
   onClickLogin(){
-    if (this.clientId === 'admin'){
-      console.log("Is the admin");
+
+    if (this.clientId === 'admin' && this.clientPassword == 'adminPassword'){
+      this.isAdmin = true;
     } 
-  }
+    else{
+      this.dataSvc.getClients().subscribe( accounts => {
+        for(var account of accounts){
+          if(this.clientId == account.id && this.clientPassword == account.password){
+            this.isClient = true;
+            break;
+          }
+        };
+      });
+    }
 
-  onClickRegister(){
-
+    
   }
 
 }

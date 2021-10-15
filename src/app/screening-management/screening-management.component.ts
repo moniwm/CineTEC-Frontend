@@ -19,4 +19,9 @@ export class ScreeningManagementComponent implements OnInit {
     })
   }
 
+  deleteScreening(screeningId : any){
+    this.dataSvc.deleteScreening(screeningId).subscribe((res) => console.log(res));
+    window.location.reload();
+  }
+
 }

@@ -5,7 +5,7 @@ import { DataService } from '../data.service';
   selector: 'app-clients-accounts',
   templateUrl: './clients-accounts.component.html',
   styleUrls: ['./clients-accounts.component.css'],
-  providers: [ DataService]
+  providers: [ DataService ]
 })
 export class ClientsAccountsComponent implements OnInit {
 
@@ -19,4 +19,8 @@ export class ClientsAccountsComponent implements OnInit {
     })
   }
 
+  deleteClient(clientID : any){
+    this.dataSvc.deleteClient(clientID).subscribe((res) => console.log(res));
+    window.location.reload();
+  }
 }
