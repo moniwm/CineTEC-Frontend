@@ -6,12 +6,11 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th style="width: 10%">Id</th>
-                <th style="width: 30%">Name</th>
-                <th style="width: 10%">Birth Date</th>
-                <th style="width: 10%">Age</th>
-                <th style="width: 10">Phone Number</th>
-                <th style="width: 20%">Password</th>
+                <th style="width: 14%">Id</th>
+                <th style="width: 34%">Name</th>
+                <th style="width: 14%">Birth Date</th>
+                <th style="width: 14%">Age</th>
+                <th style="width: 14">Phone Number</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +21,6 @@
                     <td>{{account.birthDate}}</td>
                     <td>{{account.age}}</td>
                     <td>{{account.phoneNumber}}</td>
-                    <td>{{account.password}}</td>
                     <td style="white-space: nowrap">
                         <button class="btn btn-sm btn-primary mr-1" href="clients">Edit</button>
                         <button class="btn btn-sm btn-primary mr-1" (click)="deleteClient(account.id)" [routerLink]="['.']">Delete</button>

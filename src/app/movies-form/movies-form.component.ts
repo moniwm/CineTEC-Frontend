@@ -5,27 +5,27 @@ import { DataService } from '../data.service';
   selector: 'app-movies-form',
   templateUrl: './movies-form.component.html',
   styleUrls: ['./movies-form.component.css'],
-  providers : [DataService]
+  providers: [DataService]
 })
 export class MoviesFormComponent implements OnInit {
 
- originalName = '';
- gendre = '';
+  originalName = '';
+  gender = '';
   name = '';
   director = '';
   lenght = '';
   actors = '';
 
-  constructor(private dataSvc : DataService) { }
+  constructor(private dataSvc: DataService) { }
 
   ngOnInit(): void {
   }
 
-  addMovie(){
+  addMovie() {
     this.dataSvc.postMovie(
       {
         "originalName": this.originalName,
-        "gendre": this.gendre,
+        "gendre": this.gender,
         "name": this.name,
         "director": this.director,
         "imageUrl": "",
