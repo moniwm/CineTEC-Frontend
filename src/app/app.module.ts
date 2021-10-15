@@ -10,7 +10,6 @@ import { CinemasFormComponent } from './cinemas-form/cinemas-form.component';
 import { ScreeningFormComponent } from './screening-form/screening-form.component';
 import { TheatersFormComponent } from './theaters-form/theaters-form.component';
 import { ClientFormComponent } from './client-form/client-form.component';
-import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { ClientsAccountsComponent } from './clients-accounts/clients-accounts.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MoviesManagementComponent } from './movies-management/movies-management.component';
@@ -27,9 +26,12 @@ const appRoutes : Routes = [
   { path: 'cinemas' , component : CinemasManagementComponent},
   { path: 'theaters' , component : TheatersManagementComponent},
   { path: 'screening' , component : ScreeningManagementComponent},
-  { path: 'screening' , component : ScreeningManagementComponent},
   { path: 'register/client' , component : ClientFormComponent},
-  {path: 'clients/add', component: AddClientComponent}
+  {path: 'clients/add', component: AddClientComponent},
+  { path: 'movies/add' , component : MoviesFormComponent},
+  { path: 'cinemas/add' , component : CinemasFormComponent},
+  { path: 'theaters/add' , component : TheatersFormComponent},
+  { path: 'screening/add' , component : ScreeningFormComponent}
   
 ]
 @NgModule({
@@ -41,7 +43,6 @@ const appRoutes : Routes = [
     ScreeningFormComponent,
     TheatersFormComponent,
     ClientFormComponent,
-    EmployeeFormComponent,
     ClientsAccountsComponent,
     AdminNavbarComponent,
     MoviesManagementComponent,

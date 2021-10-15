@@ -9,8 +9,9 @@ import { DataService } from '../data.service';
 })
 export class CinemasFormComponent implements OnInit {
 
+  number = '';
+  capacity = '';
   theater = '';
-  id = '';
   columns = '';
   rows = '';
 
@@ -19,7 +20,15 @@ export class CinemasFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickRegister(){
+  addCinema(){
+    this.dataSvc.postCinema(
+      {
+      "number": Number(this.number),
+      "rows": Number(this.rows),
+      "columns": Number(this.columns),
+      "capacity": Number(this.capacity),
+      "nameMovieTheater": this.theater
+    }).subscribe((res) => console.log(res));
   }
 
 }
