@@ -72,5 +72,49 @@ export class DataService{
         return this.http.post<any>("api/client", clientData)
     }
 
+    postCinema(cinemaData : any):Observable<any>{
+        return this.http.post<any>("api/cinema", cinemaData)
+    }
+
+    postMovie(movieData : any):Observable<any>{
+        return this.http.post<any>("api/movie", movieData)
+    }
+
+    postActor(actorData : any):Observable<any>{
+        return this.http.post<any>("api/actor", actorData)
+    }
+
+    postScreening(screeningData : any):Observable<any>{
+        return this.http.post<any>("api/screening", screeningData)
+    }
+
+    postTheater(theaterData : any):Observable<any>{
+        return this.http.post<any>("api/MovieTheater", theaterData)
+    }
+
+    // Delete requests
+
+    deleteClient(clientId : any):Observable<any>{
+        return this.http.delete<any>("api/client/"+ clientId)
+    }
+
+    deleteCinema(cinemaNumber : any):Observable<any>{
+        return this.http.delete<any>("api/cinema/"+ cinemaNumber)
+    }
+
+    deleteMovie(movieName: any):Observable<any>{
+        return this.http.delete<any>("api/movie/"+ movieName)
+    }
+
+    deleteTheater(theaterName : any):Observable<any>{
+        return this.http.delete<any>("api/MovieTheater/"+ theaterName)
+    }
+
+    deleteScreening(screeningId : any):Observable<any>{
+        return this.http.delete<any>("api/screening/"+ screeningId)
+    }
+
+
+
 }
 

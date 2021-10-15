@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
-  selector: 'app-employee-form',
-  templateUrl: './employee-form.component.html',
-  styleUrls: ['./employee-form.component.css'],
-  providers: [DataService],
+  selector: 'app-add-client',
+  templateUrl: './add-client.component.html',
+  styleUrls: ['./add-client.component.css'],
+  providers: [ DataService]
 })
-export class EmployeeFormComponent implements OnInit {
+export class AddClientComponent implements OnInit {
 
   name = '';
   lastName = '';
@@ -17,16 +17,13 @@ export class EmployeeFormComponent implements OnInit {
   birthDate = '';
   age = '';
   password = '';
-  startDate = '';
-  role = '';
-
 
   constructor(private dataSvc : DataService) { }
 
   ngOnInit(): void {
   }
 
-  onClickRegister(){
+  onClickAdd(){
 
     this.dataSvc.postClient({
       "id": Number(this.id),
@@ -34,12 +31,13 @@ export class EmployeeFormComponent implements OnInit {
       "lastName": this.lastName,
       "secLastName": this.secLastName,
       "age": Number(this.age),
-      "birthDate": "2021-10-13T05:41:17.490Z",
+      "birthDate": this.birthDate,
       "phoneNumber": this.phoneNumber,
       "password": this.password
     }).subscribe( (res) => {
       console.log("Res: ", res);
     })
+
   }
 
 }

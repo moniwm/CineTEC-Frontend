@@ -2,6 +2,7 @@
 
 <h1>Cinemas</h1>
 <a routerLink="add" class="btn btn-sm btn-success mb-2">Add Cinema</a>
+<a class="btn btn-sm btn-success mb-2" href="cinemas">Update</a>
  <table class="table table-striped">
      <thead>
          <tr>
@@ -21,8 +22,8 @@
                  <td>{{cinema.columns}}</td>
                  <td>{{cinema.capacity}}</td>
                  <td style="white-space: nowrap">
-                     <a class="btn btn-sm btn-primary mr-1">Edit</a>
-                     <a class="btn btn-sm btn-primary mr-1">Delete</a>
+                     <button class="btn btn-sm btn-primary mr-1">Edit</button>
+                     <button class="btn btn-sm btn-primary mr-1" (click)="deleteCinema(cinema.number)">Delete</button>
                  </td>
          </tr>
 

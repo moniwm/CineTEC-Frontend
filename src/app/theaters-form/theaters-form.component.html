@@ -1,29 +1,31 @@
+<app-admin-navbar></app-admin-navbar>
+
 <div class="content" role="main">
-  <h1>Theater information</h1>
-    <hr>
-    <h3>Name</h3>
-    <input 
-     type = "text"
-     class = "form-control">
-     <hr>
-     <h3>Location</h3>
-     <input 
-      type = "text"
-      class = "form-control">
+    <h1>Add new movie theater</h1>
       <hr>
-      <h3>Ammount of cinemas</h3>
-    <input 
-     type = "text"
-     class = "form-control">
-     <hr>
-
-     <button 
-     class = "btn btn-primary">
-     Register
-     </button>
-</div>
-
-    
-   
-
+      <h3>Name</h3>
+      <input 
+       type = "text"
+       class = "form-control"
+       [(ngModel)]="name">
+       <hr>
+       <h3>Location</h3>
+       <input 
+        type = "text"
+        class = "form-control"
+        [(ngModel)]="location">
+        <hr>
+      
+  
+       <button 
+       class = "btn btn-primary"
+       (click) = "addTheater()"
+       routerLink="..">
+       Add theater
+       </button>
+  </div>
+  
+      
      
+  
+       

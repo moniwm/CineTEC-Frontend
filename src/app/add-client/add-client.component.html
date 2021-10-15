@@ -1,6 +1,8 @@
+<app-admin-navbar></app-admin-navbar>
+
 <div class="content" role="main">
 
-    <h1>Employee Registration</h1>
+    <h1>Add new client</h1>
     <hr>
     <h3>Name</h3>
     <input 
@@ -54,24 +56,11 @@
      [(ngModel)]="password">
      <hr>
 
-     <h3>Start Date</h3>
-    <input 
-     type = "text"
-     class = "form-control"
-     [(ngModel)]="startDate">
-     <hr>
-
-     <h3>Role</h3>
-     <input 
-      type = "text"
-      class = "form-control"
-      [(ngModel)]="role">
-    <hr>
-
      <button 
      class = "btn btn-primary"
-     (click) = "onClickRegister()">
-     Register
+     (click) = "onClickAdd()"
+     routerLink="..">
+     Add client
      </button>
 
 </div>

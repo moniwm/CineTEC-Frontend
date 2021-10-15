@@ -1,39 +1,47 @@
 <app-admin-navbar></app-admin-navbar>
 
 <div class="content" role="main">
-    <h1>Add new screening</h1>
+    <h1>Add new movie theater</h1>
       <hr>
-      <h3>Id </h3>
+      <h3>Theater </h3>
       <input 
        type = "text"
        class = "form-control"
-       [(ngModel)]="id">
+       [(ngModel)]="theater">
        <hr>
-       <h3>Cinema number</h3>
+       <h3>Number</h3>
        <input 
         type = "text"
         class = "form-control"
-        [(ngModel)]="cinemaNumber">
+        [(ngModel)]="number">
         <hr>
-        <h3>Original name of the movie</h3>
+        <h2>Seats information</h2>
+        <h3>Columns</h3>
       <input 
        type = "text"
        class = "form-control"
-       [(ngModel)]="movieOriginalName">
+       [(ngModel)]="columns">
        <hr>
 
-       <h3>Time</h3>
+       <h3>Rows</h3>
       <input 
        type = "text"
        class = "form-control"
-       [(ngModel)]="hour">
+       [(ngModel)]="rows">
        <hr>
 
+       <h3>Capacity</h3>
+      <input 
+       type = "text"
+       class = "form-control"
+       [(ngModel)]="capacity">
+       <hr>
+  
        <button 
        class = "btn btn-primary"
-       (click) = "addScreening()"
+       (click) = "addCinema()"
        routerLink="..">
-       Add screening
+       Add cinema
        </button>
   </div>
   
