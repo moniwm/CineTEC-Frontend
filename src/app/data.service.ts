@@ -114,7 +114,10 @@ export class DataService{
         return this.http.delete<any>("api/screening/"+ screeningId)
     }
 
-
+    //PUT requests
+    putClient(clientId: any, clientData:any):Observable<any>{
+        return this.http.put<any>("api/client/" + clientId, clientData)
+    }
 
 }
 
