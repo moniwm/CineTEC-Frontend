@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +18,7 @@ import { ScreeningManagementComponent } from './screening-management/screening-m
 import { TheatersManagementComponent } from './theaters-management/theaters-management.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AddClientComponent } from './add-client/add-client.component';
+import { EditClientComponent } from './edit-client/edit-client.component';
 
 const appRoutes : Routes = [
   { path: '' , component : LoginComponent},
@@ -49,12 +50,14 @@ const appRoutes : Routes = [
     ScreeningManagementComponent,
     CinemasManagementComponent,
     TheatersManagementComponent,
-    AddClientComponent
+    AddClientComponent,
+    EditClientComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
