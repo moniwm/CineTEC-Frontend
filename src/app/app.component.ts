@@ -12,8 +12,5 @@ export class AppComponent {
   constructor(private dataSvc: DataService){}
 
   ngOnInit(){
-    this.dataSvc.getActors().subscribe( (res) => {
-      console.log("Res: ", res);
-    })
   }
 }

@@ -39,7 +39,7 @@ export class DataService{
     }
 
     getMovieByTheater(theater: string):Observable<any>{
-        return this.http.get<any>("api/movie/"+ theater)
+        return this.http.get<any>("api/movie/filter_movie/"+ theater)
     }
 
     getTheaters():Observable<any>{
@@ -59,7 +59,7 @@ export class DataService{
     }
 
     getScreeningByTheaterMovie(theater:string, movie:string):Observable<any>{
-        return this.http.get<any>("api/screening/" + theater+ "/" + movie)
+        return this.http.get<any>("api/screening/filter_screening/" + theater+ "/" + movie)
     }
 
     getSeatByNumber(number:string):Observable<any>{

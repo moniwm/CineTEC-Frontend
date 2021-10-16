@@ -1,0 +1,40 @@
+<app-client-navbar></app-client-navbar>
+
+<div class="content" role="main">
+    <h3>Select movie theater</h3>
+</div>
+
+<div *ngFor="let theater of theaters" class="card-container">
+    <button class="card" target="_blank" rel="noopener" (click)="onSelectTheater(theater.name)">
+      <span>{{theater.name}}</span>
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </button>
+</div>
+
+
+<div *ngIf="theaterSelected">
+    <div class="content" role="main">
+        <h3>Select movie</h3>
+    </div>
+    <div *ngIf="(moviesAmount === 0)" class="content" role="main">
+        <p> There are no movies available at the moment for {{theater}}</p>
+    
+    </div>
+    <div *ngFor="let movie of movies" class="card-container">
+        <button class="card" target="_blank" rel="noopener" (click)="onSelectMovie(movie.originalName)">
+            <span>{{movie.originalName}}</span>
+            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </button>
+    </div>
+
+</div>
+
+<div *ngIf="movieSelected">
+    <div class="content" role="main">
+        <h3>Select screening</h3>
+    </div>
+    <div *ngFor="let screening of screenings" class="card-container">
+        <button class="card" target="_blank" rel="noopener">
+            <span>Cinema: {{screening.cinemaNumber}} - Time: {{screening.hour}}:00</span>
+            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </button>
+    </div>
+
+</div>
