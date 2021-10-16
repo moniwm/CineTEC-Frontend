@@ -20,6 +20,7 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { SelectTheaterComponent } from './select-theater/select-theater.component';
 import { ClientNavbarComponent } from './client-navbar/client-navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes : Routes = [
   { path: '' , component : LoginComponent},
@@ -60,9 +61,11 @@ const appRoutes : Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap : [AppComponent],
+  
 })
 export class AppModule { }

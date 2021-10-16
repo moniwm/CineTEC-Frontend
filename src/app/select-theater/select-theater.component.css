@@ -102,6 +102,23 @@ host {
     line-height: 24px;
   }
 
+  .screen{
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 5px;
+    width: 600px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
   .card-container .card:not(:last-child) {
     margin-right: 0;
   }
@@ -109,6 +126,11 @@ host {
   .card.card-small {
     height: 16px;
     width: 168px;
+  }
+
+  .sumary {
+    height: 100px;
+    width: 200px;
   }
 
   .card-container .card:not(.highlight-card) {
@@ -289,4 +311,15 @@ host {
       display: none;
       visibility: hidden;
     }
+  }
+
+  .dropdown-container {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%; /* Bottom of button */
+    right: 0;
+    margin-left: -100px; /* More to the left */
   }
