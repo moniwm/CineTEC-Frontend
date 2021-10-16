@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule, } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +21,7 @@ import { TheatersManagementComponent } from './theaters-management/theaters-mana
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -59,7 +62,10 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
