@@ -32,7 +32,7 @@ const appRoutes : Routes = [
   { path: 'movies/add' , component : MoviesFormComponent},
   { path: 'cinemas/add' , component : CinemasFormComponent},
   { path: 'theaters/add' , component : TheatersFormComponent},
-  { path: 'screening/add' , component : ScreeningFormComponent}
+  { path: 'screening/add' , component : ScreeningFormComponent},
   { path: 'invoice', component: InvoiceComponent}
 ]
 @NgModule({
@@ -50,7 +50,7 @@ const appRoutes : Routes = [
     ScreeningManagementComponent,
     CinemasManagementComponent,
     TheatersManagementComponent,
-    AddClientComponent
+    AddClientComponent,
     InvoiceComponent
   ],
   imports: [
