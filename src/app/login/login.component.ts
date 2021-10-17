@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,13 @@ export class LoginComponent implements OnInit {
   clientPassword = null;
   isAdmin = false;
   isClient = false;
+  authError = false;
   
-  constructor(private dataSvc : DataService) { 
+  constructor(
+    private dataSvc : DataService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) { 
     
   }
 
@@ -30,10 +36,12 @@ export class LoginComponent implements OnInit {
     else{
       this.dataSvc.getClients().subscribe( accounts => {
         for(var account of accounts){
+          console.log(account.id);
+          console.log(account.password);
           if(this.clientId == account.id && this.clientPassword == account.password){
             this.isClient = true;
-            break;
-          }
+            this.router.navigate(['./buyTicket/'+this.clientId, { relativeTo: this.route }]);
+          }else this.authError = true;
         };
       });
     }
