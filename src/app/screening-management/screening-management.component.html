@@ -2,7 +2,7 @@
 
 <h1>Screenings</h1>
 <a routerLink="add" class="btn btn-sm btn-success mb-2">Add Screening</a>
-<a class="btn btn-sm btn-success mb-2" href="screenings">Update</a>
+<a class="btn btn-sm btn-success mb-2" href="/screening">Update</a>
  <table class="table table-striped">
      <thead>
          <tr>
@@ -19,13 +19,13 @@
                  <td>{{screening.id}}</td>
                  <td>{{screening.cinemaNumber}}</td>
                  <td>{{screening.movieOriginalName}}</td>
-                 <td>{{screening.hour}}</td>
+                 <td>{{screening.hour}}:00</td>
+                 <td>{{screening.capacity}}</td>
                  <td style="white-space: nowrap">
                      <a class="btn btn-sm btn-primary mr-1">Edit</a>
                      <button class="btn btn-sm btn-primary mr-1" (click)="deleteScreening(screening.id)">Delete</button>
                  </td>
          </tr>
-
          <tr *ngIf="!screenings">
              <td colspan="4" class="text-center">
                  <span class="spinner-border spinner-border-lg align-center"></span>

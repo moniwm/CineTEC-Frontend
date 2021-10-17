@@ -6,9 +6,9 @@
  <table class="table table-striped">
      <thead>
          <tr>
-             <th style="width: 10%">Name</th>
-             <th style="width: 30%">Location</th>
-             <th style="width: 60%">Cinema Amount</th>
+             <th style="width: 33%">Name</th>
+             <th style="width: 33%">Location</th>
+             <th style="width: 34%">Cinema Amount</th>
          </tr>
      </thead>
      <tbody>
@@ -18,7 +18,7 @@
                  <td>{{theater.location}}</td>
                  <td>{{theater.cinemaAmount}}</td>
                  <td style="white-space: nowrap">
-                     <a class="btn btn-sm btn-primary mr-1">Edit</a>
+                     <a class="btn btn-sm btn-primary mr-1" routerLink="edit/{{theater.name}}">Edit</a>
                      <button class="btn btn-sm btn-primary mr-1" (click)="deleteTheater(theater.name)">Delete</button>
                  </td>
          </tr>

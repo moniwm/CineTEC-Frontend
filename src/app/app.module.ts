@@ -42,7 +42,7 @@ const appRoutes: Routes = [
   { path: 'cinemas/add', component: CinemasFormComponent },
   { path: 'cinemas/edit/:number', component: EditCinemaComponent },
   { path: 'theaters/add', component: TheatersFormComponent },
-  { path: 'theaters/edit/:id', component: EditTheaterComponent },
+  { path: 'theaters/edit/:name', component: EditTheaterComponent },
   { path: 'screening/add', component: ScreeningFormComponent },
   { path: 'screening/edit/:id', component: EditScreeningComponent }
 ]

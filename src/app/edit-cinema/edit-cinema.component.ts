@@ -28,7 +28,7 @@ export class EditCinemaComponent implements OnInit {
 			theater: ['', Validators.required],
 			number: ['', Validators.required],
 			columns: ['', Validators.required],
-			rows: ['', Validators.required],
+			rows: ['', Validators.required]
 		});
 	}
 

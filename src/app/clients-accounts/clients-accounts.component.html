@@ -23,7 +23,7 @@
                     <td>{{account.phoneNumber}}</td>
                     <td style="white-space: nowrap">
                         <button class="btn btn-sm btn-primary mr-1" routerLink="edit/{{account.id}}">Edit</button>
-                        <button class="btn btn-sm btn-primary mr-1" (click)="deleteClient(account.id)" [routerLink]="['.']">Delete</button>
+                        <button class="btn btn-sm btn-primary mr-1" (click)="deleteClient(account.id)" href="clients">Delete</button>
                     </td>
             </tr>
 

@@ -47,7 +47,7 @@ export class DataService{
     }
 
     getTheaterByName(name: string):Observable<any>{
-        return this.http.get<any>("api/movie/"+ name)
+        return this.http.get<any>("api/movietheater/"+ name)
     }
 
     getScreenings():Observable<any>{
