@@ -92,6 +92,10 @@ export class DataService{
         return this.http.post<any>("api/MovieTheater", theaterData)
     }
 
+    postInvoice(invoiceData : any):Observable<any>{
+        return this.http.post<any>("api/Purchase", invoiceData)
+    }
+
     // Delete requests
 
     deleteClient(clientId : any):Observable<any>{

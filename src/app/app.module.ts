@@ -35,8 +35,7 @@ const appRoutes : Routes = [
   { path: 'cinemas/add' , component : CinemasFormComponent},
   { path: 'theaters/add' , component : TheatersFormComponent},
   { path: 'screening/add' , component : ScreeningFormComponent},
-  { path: 'buyTicket' , component : SelectTheaterComponent},
-  
+  { path: 'buyTicket/:id' , component : SelectTheaterComponent}
 ]
 @NgModule({
   declarations: [

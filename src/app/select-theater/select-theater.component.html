@@ -35,7 +35,7 @@
         
         </div>
         <div *ngFor="let screening of screenings" class="card-container">
-            <button class="card" target="_blank" rel="noopener" (click)="onSelectScreening(screening.cinemaNumber, screening.hour)">
+            <button class="card" target="_blank" rel="noopener" (click)="onSelectScreening(screening.cinemaNumber, screening.hour , screening.id)">
                 <span>Cinema: {{screening.cinemaNumber}} - Time: {{screening.hour}}:00</span>
                 <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </button>
         </div>
@@ -101,7 +101,7 @@
                 <li class="list-group-item">{{ticketsAmount}} tickets</li>
             </ul>
 
-            <button class="btn btn-sm btn-primary mr-1">Confirm</button>
+            <button class="btn btn-sm btn-primary mr-1" (click)="onConfirm()">Confirm</button>
         </div>
     </div>
 
