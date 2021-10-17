@@ -10,7 +10,6 @@
              <th style="width: 30%">Movie Theater</th>
              <th style="width: 10%">Rows</th>
              <th style="width: 10%">Columns</th>
-             <th style="width: 40%">Capacity</th>
          </tr>
      </thead>
      <tbody>
@@ -20,13 +19,11 @@
                  <td>{{cinema.nameMovieTheater}}</td>
                  <td>{{cinema.rows}}</td>
                  <td>{{cinema.columns}}</td>
-                 <td>{{cinema.capacity}}</td>
                  <td style="white-space: nowrap">
-                     <button class="btn btn-sm btn-primary mr-1">Edit</button>
+                     <button class="btn btn-sm btn-primary mr-1" routerLink="edit/{{cinema.number}}">Edit</button>
                      <button class="btn btn-sm btn-primary mr-1" (click)="deleteCinema(cinema.number)">Delete</button>
                  </td>
          </tr>
-
          <tr *ngIf="!cinemas">
              <td colspan="4" class="text-center">
                  <span class="spinner-border spinner-border-lg align-center"></span>

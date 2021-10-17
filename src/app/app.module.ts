@@ -22,6 +22,10 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
+import { EditCinemaComponent } from './edit-cinema/edit-cinema.component';
+import { EditTheaterComponent } from './edit-theater/edit-theater.component';
+import { EditScreeningComponent } from './edit-screening/edit-screening.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -34,10 +38,13 @@ const appRoutes: Routes = [
   { path: 'clients/add', component: AddClientComponent },
   { path: 'clients/edit/:id', component: EditClientComponent },
   { path: 'movies/add', component: MoviesFormComponent },
+  { path: 'movies/edit/:originalName', component: EditMovieComponent },
   { path: 'cinemas/add', component: CinemasFormComponent },
+  { path: 'cinemas/edit/:number', component: EditCinemaComponent },
   { path: 'theaters/add', component: TheatersFormComponent },
-  { path: 'screening/add', component: ScreeningFormComponent }
-
+  { path: 'theaters/edit/:id', component: EditTheaterComponent },
+  { path: 'screening/add', component: ScreeningFormComponent },
+  { path: 'screening/edit/:id', component: EditScreeningComponent }
 ]
 @NgModule({
   declarations: [
@@ -55,7 +62,11 @@ const appRoutes: Routes = [
     CinemasManagementComponent,
     TheatersManagementComponent,
     AddClientComponent,
-    EditClientComponent
+    EditClientComponent,
+    EditMovieComponent,
+    EditCinemaComponent,
+    EditTheaterComponent,
+    EditScreeningComponent
   ],
   imports: [
     BrowserModule,

@@ -119,5 +119,21 @@ export class DataService{
         return this.http.put<any>("api/client/" + clientId, clientData)
     }
 
+    putCinema(cinemaNum: any, cinemaData:any):Observable<any>{
+        return this.http.put<any>("api/cinema/" + cinemaNum, cinemaData)
+    }
+
+    putMovie(movieName: any, movieData:any):Observable<any>{
+        return this.http.put<any>("api/movie/" + movieName, movieData)
+    }
+
+    putTheater(theaterName: any, theaterData:any):Observable<any>{
+        return this.http.put<any>("api/movietheater/" + theaterName, theaterData)
+    }
+
+    putScreening(screeningId: any, screeningData:any):Observable<any>{
+        return this.http.put<any>("api/screening/" + screeningId, screeningData)
+    }
+
 }
 

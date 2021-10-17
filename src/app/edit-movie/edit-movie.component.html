@@ -1,0 +1,59 @@
+<app-admin-navbar></app-admin-navbar>
+<h1>Edit Cinema</h1>
+<div class="content" role="main">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="originalName">Original Name</label>
+                <input type="text" formControlName="originalName" class="form-control" />
+                <div *ngIf="submitted && f.originalName.errors" class="invalid-feedback">
+                    <div *ngIf="f.originalName.errors.required">Original Name is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="name">Name</label>
+                <input type="text" formControlName="name" class="form-control" />
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Name is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="gender">Gender</label>
+                <input type="text" formControlName="gender" class="form-control" />
+                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                    <div *ngIf="f.gender.errors.required">Gender is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="director">Director</label>
+                <input type="text" formControlName="director" class="form-control" />
+                <div *ngIf="submitted && f.director.errors" class="invalid-feedback">
+                    <div *ngIf="f.director.errors.required">Director is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="length">Length (min)</label>
+                <input type="text" (keypress)="onKeyPress($event)" formControlName="length" class="form-control" />
+                <div *ngIf="submitted && f.length.errors" class="invalid-feedback">
+                    <div *ngIf="f.length.errors.required">Length is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" formControlName="imageUrl" class="form-control" />
+                <div *ngIf="submitted && f.imageUrl.errors" class="invalid-feedback">
+                    <div *ngIf="f.imageUrl.errors.required">Image URL is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md">
+            <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Edit Movie
+            </button>
+            <a routerLink="/movies" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>
