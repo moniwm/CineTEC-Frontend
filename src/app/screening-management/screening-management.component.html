@@ -22,7 +22,7 @@
                  <td>{{screening.hour}}:00</td>
                  <td>{{screening.capacity}}</td>
                  <td style="white-space: nowrap">
-                     <a class="btn btn-sm btn-primary mr-1">Edit</a>
+                     <a class="btn btn-sm btn-primary mr-1" routerLink="edit/{{screening.id}}">Edit</a>
                      <button class="btn btn-sm btn-primary mr-1" (click)="deleteScreening(screening.id)">Delete</button>
                  </td>
          </tr>
