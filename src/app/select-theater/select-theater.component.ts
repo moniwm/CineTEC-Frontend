@@ -53,6 +53,8 @@ export class SelectTheaterComponent implements OnInit {
 
   boughtSeats:Array<Array<number>>;
 
+  maxSeats = false;
+
   constructor(
     private dataSvc: DataService,
     private route: ActivatedRoute,
@@ -240,12 +242,32 @@ export class SelectTheaterComponent implements OnInit {
 
   onSeat(i : number, j : number){
     let newSeat = [i,j];
-    for (var seat of this.boughtSeats){
-      if (seat[0] == i && seat[1] == j){
-        return;
+    let index = 0;
+    if (this.boughtSeats.length > 0){
+      for (var seat of this.boughtSeats){
+        if (seat[0] == i && seat[1] == j){
+          this.boughtSeats.splice(index, 1);
+          this.maxSeats = false;
+          console.log(this.boughtSeats);
+          return;
+        }
+        index += 1;
       }
     }
-    this.boughtSeats.push(newSeat);
+    if (this.boughtSeats.length < this.ticketsAmount){
+      this.boughtSeats.push(newSeat);
+      if (this.boughtSeats.length == this.ticketsAmount) this.maxSeats = true;
+    } 
     console.log(this.boughtSeats);
+    console.log(this.maxSeats);
+  }
+
+  isSelected(i : number, j : number){
+    for (var seat of this.boughtSeats){
+      if (seat[0] == i && seat[1] == j){
+        return true;
+      }
+    }
+    return false;
   }
 }

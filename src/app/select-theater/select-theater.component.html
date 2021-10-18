@@ -82,11 +82,12 @@
                         <button *ngIf="seats[i*cinemaColumns+j].state == 'restricted'" class="btn btn-sm mr-1" style = "background-color: #B2B5A9;" disabled="true">
                                 {{i}} - {{j}}
                         </button>
-                        <button *ngIf="seats[i*cinemaColumns+j].state == 'free'" class="btn btn-primary"  (click)="onSeat(i,j)" data-toggle="button" aria-pressed="false">
-                                {{i}} - {{j}}
+                        <button *ngIf="seats[i*cinemaColumns+j].state == 'free' && isSelected(i,j)" class="btn btn-primary" (click)="onSeat(i,j)" style = "background-color: #44C9CB;">
+                            {{i}} - {{j}}
                         </button>
-
-                        
+                        <button *ngIf="seats[i*cinemaColumns+j].state == 'free' && !isSelected(i,j)" class="btn btn-primary" (click)="onSeat(i,j)" style = "background-color:  #9CCB44;">
+                            {{i}} - {{j}}
+                        </button>
                     </th>
                 </tr>
 
