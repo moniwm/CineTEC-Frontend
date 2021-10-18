@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   onClickLogin(){
 
     if (this.clientId === 'admin' && this.clientPassword == 'adminPassword'){
-      this.isAdmin = true;
+      this.router.navigate(['./clients', { relativeTo: this.route }]);
     } 
     else{
       this.dataSvc.getClients().subscribe( accounts => {

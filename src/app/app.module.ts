@@ -24,7 +24,6 @@ import { SelectTheaterComponent } from './select-theater/select-theater.componen
 import { ClientNavbarComponent } from './client-navbar/client-navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditClientComponent } from './edit-client/edit-client.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { EditCinemaComponent } from './edit-cinema/edit-cinema.component';
 import { EditTheaterComponent } from './edit-theater/edit-theater.component';
@@ -43,9 +42,9 @@ const appRoutes : Routes = [
   { path: 'cinemas/add' , component : CinemasFormComponent},
   { path: 'theaters/add' , component : TheatersFormComponent},
   { path: 'screening/add' , component : ScreeningFormComponent},
-  { path: 'buyTicket/:id' , component : SelectTheaterComponent}
+  { path: 'buyTicket/:id' , component : SelectTheaterComponent},
   { path: 'clients/edit/:id', component: EditClientComponent },
-  { path: 'movies/edit/:originalName', component: EditMovieComponent },
+  { path: 'movies/edit/:originalName', component: EditMovieComponent},
   { path: 'cinemas/edit/:number', component: EditCinemaComponent },
   { path: 'theaters/edit/:name', component: EditTheaterComponent },
   { path: 'screening/edit/:id', component: EditScreeningComponent }
@@ -67,7 +66,7 @@ const appRoutes : Routes = [
     TheatersManagementComponent,
     AddClientComponent,
     SelectTheaterComponent,
-    ClientNavbarComponent
+    ClientNavbarComponent,
     EditClientComponent,
     EditMovieComponent,
     EditCinemaComponent,
@@ -79,7 +78,7 @@ const appRoutes : Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule

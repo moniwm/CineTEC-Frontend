@@ -159,6 +159,7 @@ export class SelectTheaterComponent implements OnInit {
     this.subtotal = this.total * 1.13;
 
     this.createInvoice();
+    window.location.reload();
   }
   
   dateWithoutTime(){
