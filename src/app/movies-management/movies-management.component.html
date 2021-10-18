@@ -7,14 +7,11 @@
  <table class="table table-striped">
      <thead>
          <tr>
-             <th style="width: 10%">Original Name</th>
-             <th style="width: 10%">Name</th>
-             <th style="width: 10%">Gender</th>
-             <th style="width: 10%">Director</th>
-             <th style="width: 20%">Actors</th>
-             <th style="width: 20%">Screenings</th>
-             <th style="width: 10%">Length</th>
-             <th style="width: 10%">Image</th>
+             <th style="width: 20%">Original Name</th>
+             <th style="width: 20%">Name</th>
+             <th style="width: 20%">Gender</th>
+             <th style="width: 20%">Director</th>
+             <th style="width: 20%">Length (min)</th>
          </tr>
      </thead>
      <tbody>
@@ -24,12 +21,9 @@
                  <td>{{movie.name}}</td>
                  <td>{{movie.gendre}}</td>
                  <td>{{movie.director}}</td>
-                 <td>{{movie.actors}}</td>
-                 <td>{{movie.screenings}}</td>
                  <td>{{movie.lenght}}</td>
-                 <td>Image</td>
                  <td style="white-space: nowrap">
-                     <a class="btn btn-sm btn-primary mr-1">Edit</a>
+                     <a class="btn btn-sm btn-primary mr-1" routerLink="edit/{{movie.originalName}}">Edit</a>
                      <button class="btn btn-sm btn-primary mr-1" (click)="deleteMovie(movie.originalName)">Delete</button>
                  </td>
          </tr>

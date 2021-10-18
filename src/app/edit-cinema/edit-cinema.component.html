@@ -1,0 +1,45 @@
+<app-admin-navbar></app-admin-navbar>
+<h1>Edit Cinema</h1>
+<div class="content" role="main">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="theater">Theater</label>
+                <input type="text" formControlName="theater" class="form-control" />
+                <div *ngIf="submitted && f.theater.errors" class="invalid-feedback">
+                    <div *ngIf="f.theater.errors.required">Theater is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="number">Number</label>
+                <input type="text" (keypress)="onKeyPress($event)" formControlName="number" class="form-control" />
+                <div *ngIf="submitted && f.number.errors" class="invalid-feedback">
+                    <div *ngIf="f.number.errors.required">Number is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="columns">Columns</label>
+                <input type="text" (keypress)="onKeyPress($event)" formControlName="columns" class="form-control" />
+                <div *ngIf="submitted && f.columns.errors" class="invalid-feedback">
+                    <div *ngIf="f.columns.errors.required">Columns is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="rows">Rows</label>
+                <input type="text" (keypress)="onKeyPress($event)" formControlName="rows" class="form-control" />
+                <div *ngIf="submitted && f.rows.errors" class="invalid-feedback">
+                    <div *ngIf="f.rows.errors.required">Rows is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md">
+            <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Edit Cinema
+            </button>
+            <a routerLink="/cinemas" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>

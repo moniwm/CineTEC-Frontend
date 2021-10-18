@@ -21,6 +21,6 @@ export class ClientsAccountsComponent implements OnInit {
 
   deleteClient(clientID : any){
     this.dataSvc.deleteClient(clientID).subscribe((res) => console.log(res));
-    window.location.reload();
+    //window.location.reload();
   }
 }
