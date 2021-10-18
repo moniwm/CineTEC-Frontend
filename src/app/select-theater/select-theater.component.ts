@@ -51,6 +51,8 @@ export class SelectTheaterComponent implements OnInit {
   date: string;
   screeningId = ' ';
 
+  boughtSeats:Array<Array<number>>;
+
   constructor(
     private dataSvc: DataService,
     private route: ActivatedRoute,
@@ -66,6 +68,8 @@ export class SelectTheaterComponent implements OnInit {
     //this.subtotal = this.total * 1.13;
     this.total = 0;
     this.subtotal = 0;
+
+    this.boughtSeats = new(Array);
   }
 
   ngOnInit(): void {
@@ -232,5 +236,16 @@ export class SelectTheaterComponent implements OnInit {
     };
 
     var invoice = jsPDFInvoiceTemplate(props);
+  }
+
+  onSeat(i : number, j : number){
+    let newSeat = [i,j];
+    for (var seat of this.boughtSeats){
+      if (seat[0] == i && seat[1] == j){
+        return;
+      }
+    }
+    this.boughtSeats.push(newSeat);
+    console.log(this.boughtSeats);
   }
 }

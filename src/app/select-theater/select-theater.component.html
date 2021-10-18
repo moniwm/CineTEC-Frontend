@@ -79,13 +79,14 @@
                         <button *ngIf="seats[i*cinemaColumns+j].state == 'sold'" class="btn btn-sm mr-1" style = "background-color: #D46071;">
                                 {{i}} - {{j}}
                         </button>
-                        <button *ngIf="seats[i*cinemaColumns+j].state == 'free'" class="btn btn-sm mr-1" style = "background-color: #B2B5A9;" disabled="true">
+                        <button *ngIf="seats[i*cinemaColumns+j].state == 'restricted'" class="btn btn-sm mr-1" style = "background-color: #B2B5A9;" disabled="true">
                                 {{i}} - {{j}}
                         </button>
-                        <button *ngIf="seats[i*cinemaColumns+j].state == 'restricted'" class="btn btn-sm mr-1" style = "background-color: #C7DC6E;">
+                        <button *ngIf="seats[i*cinemaColumns+j].state == 'free'" class="btn btn-primary"  (click)="onSeat(i,j)" data-toggle="button" aria-pressed="false">
                                 {{i}} - {{j}}
                         </button>
 
+                        
                     </th>
                 </tr>
 
