@@ -144,6 +144,7 @@ export class SelectTheaterComponent implements OnInit {
   }
 
   onConfirm() {
+    let selSeats = this.getSeatsJson(this.boughtSeats);
     this.dataSvc.postInvoice(
       {
         "clientId": Number(this.clientId),
@@ -151,7 +152,7 @@ export class SelectTheaterComponent implements OnInit {
         "movieoriginalname": this.movie,
         "screeningid": this.screeningId,
         "date" : this.date,
-        "seats":[]
+        "seats":selSeats
       }
     ).subscribe((res) => this.invoiceNum = res)
     this.total = this.ticketsAmount * +this.price;
@@ -201,12 +202,13 @@ export class SelectTheaterComponent implements OnInit {
         invGenDate: "Invoice Date: " + this.date,
         headerBorder: false,
         tableBodyBorder: false,
-        header: ["Purchase", "Movie", "Screening", "Theater", "Price", "Quantity", "Total"],
+        header: ["Purchase", "Movie", "Screening", "Theater", "Seats", "Price", "Quantity", "Total"],
         table: Array.from(Array(1), (item, index) => ([
           index + 1,
           this.movie,
           this.screeningTime + ":00",
           this.theater,
+          this.getSeatsStr(),
           Math.floor(this.price),
           this.moviesAmount, 
           Math.floor(this.total)
@@ -258,8 +260,6 @@ export class SelectTheaterComponent implements OnInit {
       this.boughtSeats.push(newSeat);
       if (this.boughtSeats.length == this.ticketsAmount) this.maxSeats = true;
     } 
-    console.log(this.boughtSeats);
-    console.log(this.maxSeats);
   }
 
   isSelected(i : number, j : number){
@@ -270,4 +270,26 @@ export class SelectTheaterComponent implements OnInit {
     }
     return false;
   }
+
+  getSeatsJson(seatsArray : Array<Array<number>>){
+    let seatsJson = [];
+    for (var seat of this.boughtSeats){
+        var item = {
+          "rowNum" : seat[0],
+          "columnNum" : seat[1]
+        };
+        seatsJson.push(item);
+    }
+    return seatsJson;
+  }
+
+  getSeatsStr(){
+    let seats = '';
+    for (var seat of this.boughtSeats){
+      seats += seat[0].toString() + '-' + seat[1].toString() + ','; 
+    }
+    seats = seats.slice(0, -1);
+    return seats;
+  }
+
 }
