@@ -10,14 +10,25 @@ import { DataService } from '../data.service';
 export class ScreeningFormComponent implements OnInit {
 
   id = '';
- cinemaNumber = '';
+  cinemaNumber = '';
   movieOriginalName = '';
   hour = '';
-  capacity = '';
+  capacity = 100;
+  cinemas : any;
+  selectedTheater : any;
+  selectedCinema = '';
 
-  constructor(private dataSvc : DataService) { }
+
+  constructor(private dataSvc : DataService) { 
+    this.cinemas = [];
+  }
 
   ngOnInit(): void {
+    this.dataSvc.getCinemas().subscribe((res) => {this.cinemas = res;
+      console.log(res);
+      console.log(this.cinemas)});
+    //this.selectedCinema = this.cinemas[0].nameMovieTheater + " cinema: #" + this.cinemas[0].number;
+    
   }
 
   addScreening(){
@@ -30,5 +41,12 @@ export class ScreeningFormComponent implements OnInit {
         "capacity": Number(this.capacity)
       }).subscribe((res) => console.log(res));
   }
+
+  changeCapacity(selectedCapacity : number){
+
+    this.capacity = selectedCapacity;
+  }
+
+
 
 }

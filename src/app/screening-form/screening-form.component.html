@@ -4,12 +4,18 @@
     <h1>Add new screening</h1>
       <hr>
        <h3>Cinema number</h3>
-       <input 
-        type = "text"
-        class = "form-control"
-        [(ngModel)]="cinemaNumber">
+       <div class="btn-group">
+        <div class="dropdown-container"><!--Container wrapped around-->
+            <button data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" type="button" aria-expanded="true"><span class="caret"></span>
+            </button>
+            <ul *ngFor="let cinema of cinemas" role="menu" class="dropdown-menu">
+                <li><a>{{cinema.nameMovieTheater}} - cinema: #{{cinema.number}} </a> </li>
+            </ul>
+          </div>
+        </div>
         <hr>
-        <h3>Original name of the movie</h3>
+
+      <h3>Original name of the movie</h3>
       <input 
        type = "text"
        class = "form-control"
@@ -23,19 +29,30 @@
        [(ngModel)]="hour">
        <hr>
 
-       <h3>Capacity</h3>
-      <input 
-       type = "text"
-       class = "form-control"
-       [(ngModel)]="capacity">
-       <hr>
+        <h3>Capacity</h3>
+       <div class="btn-group">
+        <div class="dropdown-container"><!--Container wrapped around-->
+            <button data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" type="button" aria-expanded="true">{{capacity}} <span class="caret"></span>
+            </button>
+            <ul role="menu" class="dropdown-menu">
+                <li><a (click)="changeCapacity(50)">50%</a> </li>
+                <li><a (click)="changeCapacity(30)">70%</a> </li>
+                <li><a (click)="changeCapacity(20)">80%</a> </li>
+                <li><a (click)="changeCapacity(0)">100%</a> </li>
 
+            </ul>
+          </div>
+        </div>
+    
+        
+      <div class="content" role="main">
        <button 
        class = "btn btn-primary"
        (click) = "addScreening()"
        routerLink="..">
        Add screening
        </button>
+      </div>
   </div>
   
       
