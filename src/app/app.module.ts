@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule, } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +20,14 @@ import { ScreeningManagementComponent } from './screening-management/screening-m
 import { TheatersManagementComponent } from './theaters-management/theaters-management.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AddClientComponent } from './add-client/add-client.component';
+import { SelectTheaterComponent } from './select-theater/select-theater.component';
+import { ClientNavbarComponent } from './client-navbar/client-navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditClientComponent } from './edit-client/edit-client.component';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
+import { EditCinemaComponent } from './edit-cinema/edit-cinema.component';
+import { EditTheaterComponent } from './edit-theater/edit-theater.component';
+import { EditScreeningComponent } from './edit-screening/edit-screening.component';
 
 const appRoutes : Routes = [
   { path: '' , component : LoginComponent},
@@ -31,8 +41,13 @@ const appRoutes : Routes = [
   { path: 'movies/add' , component : MoviesFormComponent},
   { path: 'cinemas/add' , component : CinemasFormComponent},
   { path: 'theaters/add' , component : TheatersFormComponent},
-  { path: 'screening/add' , component : ScreeningFormComponent}
-  
+  { path: 'screening/add' , component : ScreeningFormComponent},
+  { path: 'buyTicket/:id' , component : SelectTheaterComponent},
+  { path: 'clients/edit/:id', component: EditClientComponent },
+  { path: 'movies/edit/:originalName', component: EditMovieComponent},
+  { path: 'cinemas/edit/:number', component: EditCinemaComponent },
+  { path: 'theaters/edit/:name', component: EditTheaterComponent },
+  { path: 'screening/edit/:id', component: EditScreeningComponent }
 ]
 @NgModule({
   declarations: [
@@ -49,15 +64,27 @@ const appRoutes : Routes = [
     ScreeningManagementComponent,
     CinemasManagementComponent,
     TheatersManagementComponent,
-    AddClientComponent
+    AddClientComponent,
+    SelectTheaterComponent,
+    ClientNavbarComponent,
+    EditClientComponent,
+    EditMovieComponent,
+    EditCinemaComponent,
+    EditTheaterComponent,
+    EditScreeningComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap : [AppComponent],
+  
 })
 export class AppModule { }

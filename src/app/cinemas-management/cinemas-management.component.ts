@@ -22,6 +22,5 @@ export class CinemasManagementComponent implements OnInit {
   deleteCinema(number : any){
     this.dataSvc.deleteCinema(number).subscribe((res) => console.log(res));
     window.location.reload();
-
 }
 }

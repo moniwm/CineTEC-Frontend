@@ -1,0 +1,126 @@
+<app-client-navbar></app-client-navbar>
+
+<div class="content" role="main">
+    <h3>Select movie theater</h3>
+
+    <div *ngFor="let theater of theaters" class="card-container">
+        <button class="card" target="_blank" rel="noopener" (click)="onSelectTheater(theater.name)">
+          <span>{{theater.name}}</span>
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </button>
+    </div>
+    
+    
+    <div *ngIf="theaterSelected">
+        <div class="content" role="main">
+            <h3>Select movie</h3>
+        </div>
+        <div *ngIf="(moviesAmount === 0)" class="content" role="main">
+            <p> There are no movies available at the moment for {{theater}}</p>
+        
+        </div>
+        <div *ngFor="let movie of movies" class="card-container">
+            <button class="card" target="_blank" rel="noopener" (click)="onSelectMovie(movie.originalName)">
+                <span>{{movie.originalName}}</span>
+                <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </button>
+        </div>
+    
+    </div>
+    
+    <div *ngIf="movieSelected">
+        <div class="content" role="main">
+            <h3>Select screening</h3>
+        </div>
+        <div *ngIf="(screeningsAmount === 0)" class="content" role="main" >
+            <p> There are no screenings available at the moment for {{movie}} in {{theater}}</p>
+        
+        </div>
+        <div *ngFor="let screening of screenings" class="card-container">
+            <button class="card" target="_blank" rel="noopener" (click)="onSelectScreening(screening.cinemaNumber, screening.hour , screening.id)">
+                <span>Cinema: {{screening.cinemaNumber}} - Time: {{screening.hour}}:00</span>
+                <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </button>
+        </div>
+    
+    </div>
+
+    <div *ngIf="screeningSelected">
+        <div class="content" role="main">
+            <h3>Amount of tickets</h3>
+            <div class="btn-group">
+                <div class="dropdown-container"><!--Container wrapped around-->
+                    <button data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" type="button" aria-expanded="true">{{ticketsAmount}} <span class="caret"></span>
+                    </button>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a (click)="changeTicketsAmount(1)">1</a> </li>
+                        <li><a (click)="changeTicketsAmount(2)">2</a> </li>
+                        <li><a (click)="changeTicketsAmount(3)">3</a> </li>
+                        <li><a (click)="changeTicketsAmount(4)">4</a> </li>
+                        <li><a (click)="changeTicketsAmount(5)">5</a> </li>
+                        <li><a (click)="changeTicketsAmount(6)">6</a> </li>
+                        <li><a (click)="changeTicketsAmount(7)">7</a> </li>
+                        <li><a (click)="changeTicketsAmount(8)">8</a> </li>
+                        <li><a (click)="changeTicketsAmount(9)">9</a> </li>
+                        <li><a (click)="changeTicketsAmount(10)">10</a> </li>
+                    </ul>
+                  </div>
+    
+    </div>
+
+    <div class="content" role="main">
+        <h3>Select seats</h3>
+        <div class="screen">
+            <div class="card-body">
+             Screen
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr *ngFor="let item of [].constructor(cinemaRows); let i = index">
+                    <th *ngFor="let item of [].constructor(cinemaColumns); let j = index" style="white-space: nowrap">
+                        <button *ngIf="seats[i*cinemaColumns+j].state == 'sold'" class="btn btn-sm mr-1" style = "background-color: #D46071;">
+                                {{i}} - {{j}}
+                        </button>
+                        <button *ngIf="seats[i*cinemaColumns+j].state == 'restricted'" class="btn btn-sm mr-1" style = "background-color: #B2B5A9;" disabled="true">
+                                {{i}} - {{j}}
+                        </button>
+                        <button *ngIf="seats[i*cinemaColumns+j].state == 'free' && isSelected(i,j)" class="btn btn-primary" (click)="onSeat(i,j)" style = "background-color: #44C9CB;">
+                            {{i}} - {{j}}
+                        </button>
+                        <button *ngIf="seats[i*cinemaColumns+j].state == 'free' && !isSelected(i,j)" class="btn btn-primary" (click)="onSeat(i,j)" style = "background-color:  #9CCB44;">
+                            {{i}} - {{j}}
+                        </button>
+                    </th>
+                </tr>
+
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+        
+        <button class="btn btn-sm btn-primary mr-1" (click)="onBuyTicket()">Buy tickets</button>
+        
+
+        <div *ngIf="sumary" class="content" role="main">
+
+            <h3>Purchase Sumary</h3>
+          
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h4>{{movie}}</h4> </li>
+                <li class="list-group-item">{{theater}}</li>
+                <li class="list-group-item">Cinema: {{cinemaNumber}}</li>
+                <li class="list-group-item">Time: {{screeningTime}}:00</li>
+                <li class="list-group-item">{{ticketsAmount}} tickets</li>
+            </ul>
+
+            <button class="btn btn-sm btn-primary mr-1" (click)="onConfirm()">Confirm</button>
+        </div>
+    </div>
+
+   
+
+
+      
+    
+</div>
+

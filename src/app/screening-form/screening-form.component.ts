@@ -13,6 +13,7 @@ export class ScreeningFormComponent implements OnInit {
  cinemaNumber = '';
   movieOriginalName = '';
   hour = '';
+  capacity = '';
 
   constructor(private dataSvc : DataService) { }
 
@@ -25,7 +26,8 @@ export class ScreeningFormComponent implements OnInit {
         "id": Number(this.id),
         "cinemaNumber": Number(this.cinemaNumber),
         "movieOriginalName": this.movieOriginalName,
-        "hour": Number(this.hour)
+        "hour": Number(this.hour),
+        "capacity": Number(this.capacity)
       }).subscribe((res) => console.log(res));
   }
 

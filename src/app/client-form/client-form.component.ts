@@ -31,7 +31,7 @@ export class ClientFormComponent implements OnInit {
       "lastName": this.lastName,
       "secLastName": this.secLastName,
       "age": Number(this.age),
-      "birthDate": "2021-10-13T05:41:17.490Z",
+      "birthDate": this.birthDate,
       "phoneNumber": this.phoneNumber,
       "password": this.password
     }).subscribe( (res) => {
