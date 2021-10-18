@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import jsPDFInvoiceTemplate, { OutputType, jsPDF } from "jspdf-invoice-template";
+import { ScreeningManagementComponent } from '../screening-management/screening-management.component';
 
 @Component({
   selector: 'app-select-theater',
@@ -20,7 +21,7 @@ export class SelectTheaterComponent implements OnInit {
   screenings = null;
   screeningsAmount = 0;
 
-  seats = null;
+  seats:any;
 
   theaterSelected = false;
   movieSelected = false;
@@ -108,8 +109,15 @@ export class SelectTheaterComponent implements OnInit {
       this.cinemaRows = res.rows;
       this.cinemaColumns = res.columns;
     });
-    this.dataSvc.getSeatByNumber(screeningCinemaNumber).subscribe((res) => this.seats = res);
+    this.dataSvc.getSeatByScreeningNumber(screeningId).subscribe((res) => this.seats = res);
 
+
+  }
+
+  getSpecificSeat(row: any, column: any){
+
+    
+    return this.dataSvc.getSpecificSeat(this.screeningId, row, column);
 
   }
 

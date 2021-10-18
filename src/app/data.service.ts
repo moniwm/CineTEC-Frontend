@@ -62,8 +62,12 @@ export class DataService{
         return this.http.get<any>("api/screening/filter_screening/" + theater+ "/" + movie)
     }
 
-    getSeatByNumber(number:string):Observable<any>{
-        return this.http.get<any>("api/screening/" + number)
+    getSeatByScreeningNumber(number:string):Observable<any>{
+        return this.http.get<any>("api/seat/" + number)
+    }
+
+    getSpecificSeat(number:string, row:string, column:string):Observable<any>{
+        return this.http.get<any>("api/seat/"+number+"/"+row+"/"+column);
     }
 
     // Post requests
